@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
-import { PlayContext } from "./navigate";
+import { NavigateContext } from "../../services/contexts/NavigateContext";
 
 const Footer = () => {
-
-  const { currentAudio } = useContext(PlayContext);
+  const { currentAudio } = useContext(NavigateContext);
 
   return (
     <footer id="footer">
@@ -13,9 +12,13 @@ const Footer = () => {
           <div id="nameRange">
             <cite id="playingAudioName">{currentAudio.songName}</cite>
             <div id="timeDiv">
-              <span id="startTime" className="playTime">-+-</span>
+              <span id="startTime" className="playTime">
+                -+-
+              </span>
               <input type="range" name="playRange" id="playingTime" />
-              <span id="endTime" className="playTime">-+-</span>
+              <span id="endTime" className="playTime">
+                -+-
+              </span>
             </div>
           </div>
           <div id="iconDiv">

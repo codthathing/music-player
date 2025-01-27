@@ -1,25 +1,24 @@
 import React, { useContext, useState } from "react";
-import { PlayContext } from "../navigate";
+import { NavigateContext } from "../../services/contexts/NavigateContext";
 
 const Structure = ({ id, songLink, songName }) => {
-
-  const { listOfAudios, setCurrentAudio } = useContext(PlayContext);
+  const { listOfAudios, setCurrentAudio } = useContext(NavigateContext);
 
   const [iconChange, setIconChange] = useState({
     detIcon: false,
-    iconClass: "fa-solid fa-circle-play controlIcons"
+    iconClass: "fa-solid fa-circle-play controlIcons",
   });
 
   const playMusic = (id) => {
     // listOfAudios.map((player) => {
     //   if (player.id == id) {
-        let currentMusic = listOfAudios.filter((x) => x.id == id);
-        setCurrentAudio(currentMusic);
-        if (iconChange.detIcon) {
-          setIconChange({ ...iconChange, detIcon: false, iconClass: "fa-solid fa-circle-play controlIcons" })
-        } else {
-          setIconChange({ ...iconChange, detIcon: true, iconClass: "fa-solid fa-circle-pause controlIcons" })
-        };
+    let currentMusic = listOfAudios.filter((x) => x.id == id);
+    setCurrentAudio(currentMusic);
+    if (iconChange.detIcon) {
+      setIconChange({ ...iconChange, detIcon: false, iconClass: "fa-solid fa-circle-play controlIcons" });
+    } else {
+      setIconChange({ ...iconChange, detIcon: true, iconClass: "fa-solid fa-circle-pause controlIcons" });
+    }
     //   } else if (player.id != id) {
     //     setIconChange({ ...iconChange, detIcon: false, iconClass: "fa-solid fa-circle-play controlIcons" });
     //   };
