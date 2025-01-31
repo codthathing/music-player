@@ -242,10 +242,10 @@ body {
         position: fixed;
         background-color: #1B1A1AB3;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         top: 0;
         z-index: 10;
-        gap: 3rem 0;
+        gap: 2rem 0;
         padding: 0 1.5rem;
     }
 
@@ -263,8 +263,8 @@ body {
     }
 
     #current-music-image {
-        width: 14rem;
-        height: 15rem;
+        width: 10rem;
+        height: 11rem;
     }
     
     #current-music-name {
@@ -276,7 +276,7 @@ body {
     }
     
     #current-music-control-div {
-        font-size: 3rem;
+        font-size: 2rem;
         gap: 0 1.5rem;
     }
 
