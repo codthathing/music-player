@@ -3,111 +3,471 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: black;
+}
+
+#body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 #header {
-    background-color: red;
     color: white;
-    padding: 1rem;
-}
-
-#headerNav {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 2rem;
-}
-
-#bottomHead {
     display: flex;
     justify-content: space-between;
 }
 
-#folDiv {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+#logo {
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
-.icons {
-    font-size: 1.5rem;
+#search-div {
+    display: flex;
+    align-items: center;
+    background-color: rgb(49, 49, 49);
+    color: rgb(170, 170, 170);
+}
+
+#search-input {
+    background-color: transparent;
+    color: rgb(170, 170, 170);
+    width: 100%;
+    border: none;
+}
+
+#account-button {
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+}
+
+#audio-main {
+    flex: 1;
+    overflow-y: auto;
+}
+
+#audio-main::-webkit-scrollbar {
+    display: none;
+}
+
+#musicSection {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+#musicSection::-webkit-scrollbar {
+    display: none;
 }
 
 .musicDiv {
-    background-color: red;
-    border-radius: 0.5rem;
-    padding: 1.5rem 1.5rem 1.5rem 1rem;
-    margin: 0.5rem;
-    box-shadow: 2px 2px 5px gray;
+    border: 1px solid rgba(214, 214, 214, 0.1);
+    display: flex;
+    align-items: center;
+    color: white;
+    text-transform: capitalize;
+    cursor: pointer;
 }
 
 .controlDisplay {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+}
+
+#current-music-section {
+    border: 1px solid rgba(214, 214, 214, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.audioName {
-    font-size: 1.5rem;
+#current-music-details-div {
+    color: white;
+    text-align: center;
+}
+
+#current-music-control-div {
+    display: flex;
     color: white;
 }
 
-[class~="controlIcons"] {
-    font-size: 2.5rem;
+.current-music-control-button {
     cursor: pointer;
 }
 
 #footer {
-    position: absolute;
-    bottom: 0;
-    background-color: red;
-    width: 100%;
-    padding: 1.5rem 1rem;
-}
-
-#mainControlDisplay {
+    background-color: rgb(31, 31, 31);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-
-#nameRange {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-}
-
-#playingAudioName {
-    font-size: 1.5rem;
-    color: white;
-}
-
-#timeDiv {
-    display: flex;
-    gap: 0 0.5rem;
-    align-items: center;
-}
-
-#playingTime {
-    -webkit-appearance: none;
-    border-radius: 1.5rem;
-    height: 7.5px;
-    width: 75%;
-    accent-color: red;
-}
-
-.playTime {
-    color: white;
-    font-size: 0.75rem;
 }
 
 #iconDiv {
     display: flex;
-    gap: 0 2.5rem;
     align-items: center;
 }
 
-[class~="controlIconsMove"] {
-    font-size: 2rem;
+#play-pause-button-div {
+    border-radius: 50%;
+    border: 1px solid white;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-button {
+    color: white;
     cursor: pointer;
+}
+
+#music-duration-div {
+    display: flex;
+}
+
+#playingTime {
+    width: 100%;
+    -webkit-appearance: none;
+    background: transparent;
+}
+
+#playingTime::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, rgb(170, 170, 170) 0%, rgb(170, 170, 170) var(--fill), #FFFFFF var(--fill), #ddd 100%);
+    border-radius: 2rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+#playingTime::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: rgb(170, 170, 170);
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+}
+
+#playingTime:hover::-webkit-slider-thumb {
+    display: block;
+}
+
+#music-time {
+    display: flex;
+    align-items: center;
+    color: white;
+    white-space: nowrap;
+}
+
+
+
+
+
+@media all and (max-width: 767px) {
+    #header {
+        padding: 1rem;
+        gap: 1.25rem 0;
+        flex-wrap: wrap;
+    }
+
+    #logo {
+        font-size: 1.25rem;
+    }
+        
+    #search-div {
+        gap: 0 1.25rem;
+        padding: 0.25rem 1.25rem;
+        border-radius: 0.5rem;
+        width: 100%;
+        order: 2;
+    }
+
+    #search-icon {
+        font-size: 0.75rem;
+    }
+
+    #search-input {
+        padding: 0.75rem 0;
+        font-size: 0.75rem;
+    }
+    
+    #account-button {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.75rem;
+        order: 1;
+    }
+
+    #musicSection {
+        gap: 0.5rem 0;
+        padding: 1rem 1.25rem;
+    }
+    
+    .musicDiv {
+        border-radius: 0.25rem;
+        padding: 0.5rem 1rem;
+        gap: 0 1.5rem;
+    }
+
+    .audio-number {
+        font-size: 0.75rem;
+    }
+    
+    .audio-image {
+        width: 2.5rem;
+        height: 3rem;
+    }
+    
+    .controlDisplay {
+        gap: 0.15rem 0;
+    }
+    
+    .audioName {
+        font-size: 0.75rem;
+    }
+    
+    .audio-artist {
+        font-size: 0.5rem;
+    }
+    
+    #current-music-section {
+        position: fixed;
+        background-color: #1B1A1AB3;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        z-index: 10;
+        gap: 3rem 0;
+        padding: 0 1.5rem;
+    }
+
+    #music-details-close-div {
+        position: absolute;
+        top: 2rem;
+        background-color: rgb(49, 49, 49);
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    #current-music-image {
+        width: 14rem;
+        height: 15rem;
+    }
+    
+    #current-music-name {
+        font-size: 1.5rem;
+    }
+    
+    #current-music-artist {
+        font-size: 1rem;
+    }
+    
+    #current-music-control-div {
+        font-size: 3rem;
+        gap: 0 1.5rem;
+    }
+
+    #footer {
+        z-index: 20;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 1.25rem 1rem;
+        gap: 1.25rem 0;
+    }
+
+    .control-button {
+        font-size: 0.75rem;
+    }
+    
+    #iconDiv {
+        gap: 0 3.5rem;
+    }
+    
+    #play-pause-button-div {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+        
+    #music-duration-div {
+        gap: 0 1.5rem;
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem 0;
+    }
+    
+    #playingTime::-webkit-slider-thumb {
+        margin-top: -3px;
+        height: 9px;
+        width: 9px;
+    }
+    
+    #playingTime::-webkit-slider-runnable-track {
+        height: 3.5px;
+    }
+        
+    #music-time {
+        justify-content: space-between;
+        font-size: 0.5rem;
+    }
+
+    .music-time-divider {
+        display: none;
+    }
+
+    #music-shuffle-icon {
+        order: 2;
+    }
+}
+
+
+
+
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+    
+}
+
+
+
+
+
+@media all and (min-width: 1024px) {
+    #header {
+        align-items: center;
+        padding: 1.5rem;
+    }
+
+    #logo {
+        font-size: 2rem;
+    }
+        
+    #search-div {
+        gap: 0 1.25rem;
+        padding: 0.25rem 1.5rem;
+        border-radius: 0.75rem;
+        width: 50%;
+    }
+
+    #search-input {
+        padding: 0.75rem 0;
+    }
+    
+    #account-button {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+    
+    #audio-main {
+        display: grid;
+        grid-template-columns: 65% 30%;
+        padding: 3rem 4rem 1.5rem 4rem;
+        gap: 0 4rem;
+    }
+
+    #musicSection {
+        gap: 0.75rem 0;
+    }
+    
+    .musicDiv {
+        border-radius: 0.5rem;
+        padding: 1rem 1.5rem;
+        gap: 0 2.5rem;
+    }
+    
+    .audio-image {
+        width: 5rem;
+        height: 5.5rem;
+    }
+    
+    .controlDisplay {
+        gap: 0.5rem 0;
+    }
+    
+    .audioName {
+        font-size: 1.25rem;
+    }
+    
+    .audio-artist {
+        font-size: 0.75rem;
+    }
+    
+    #current-music-section {
+        gap: 2rem 0;
+        border-radius: 0.75rem;
+    }
+
+    #music-details-close-div {
+        display: none;
+    }
+
+    #current-music-image {
+        width: 9rem;
+        height: 10rem;
+    }
+    
+    #current-music-name {
+        font-size: 1.5rem;
+    }
+    
+    #current-music-artist {
+        font-size: 1rem;
+    }
+    
+    #current-music-control-div {
+        font-size: 2.5rem;
+        gap: 0 2.5rem;
+    }
+
+    #footer {
+        gap: 0 4rem;
+        padding: 2rem 2.5rem;
+    }
+
+    #music-display-details-icon {
+        display: none;
+    }
+    
+    #iconDiv {
+        gap: 0 2rem;
+    }
+    
+    #play-pause-button-div {
+        height: 2.75rem;
+        width: 2.75rem;
+    }
+        
+    #music-duration-div {
+        flex: 1;
+        align-items: center;
+        gap: 0 1.5rem;
+    }
+    
+    #playingTime::-webkit-slider-thumb {
+        margin-top: -4.25px;
+        height: 12.5px;
+        width: 12.5px;
+    }
+    
+    #playingTime::-webkit-slider-runnable-track {
+        height: 5px;
+    }
+        
+    #music-time {
+        gap: 0 0.75rem;
+        font-size: 1rem;
+    }
 }
