@@ -7,7 +7,7 @@ const AudioTemplate = ({ songArray }) => {
       {songArray.map(({ id, songLink, songName }) => {
         return (
           <div key={id} className="musicDiv">
-            <var className="audio-number">1</var>
+            <var className="audio-number">{id + 1}</var>
             <img src={music_app} alt="MUSIC APP" className="audio-image" loading="lazy" />
             <aside className="controlDisplay">
               <h1 className="audioName">{songName}</h1>
