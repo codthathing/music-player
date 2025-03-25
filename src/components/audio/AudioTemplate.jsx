@@ -1,17 +1,18 @@
-import React from "react";
-import music_app from "../../assets/images/music-app.webp";
+import { useAudioControl } from "../../hooks/useAudioControl";
 
 const AudioTemplate = ({ songArray }) => {
+  const { getAudio } = useAudioControl();
+
   return (
     <section id="musicSection">
-      {songArray.map(({ id, songLink, songName }) => {
+      {songArray.map(({ id, artist, title, picture }, index) => {
         return (
-          <div key={id} className="musicDiv">
-            <var className="audio-number">{id + 1}</var>
-            <img src={music_app} alt="MUSIC APP" className="audio-image" loading="lazy" />
+          <div key={id} onClick={() => getAudio(id)} className="musicDiv">
+            <var className="audio-number">{index + 1}</var>
+            <img src={picture} alt={title} className="audio-image" loading="lazy" />
             <aside className="controlDisplay">
-              <h1 className="audioName">{songName}</h1>
-              <p className="audio-artist">Wizkid ft Davido</p>
+              <h1 className="audioName">{title}</h1>
+              <p className="audio-artist">{artist}</p>
             </aside>
           </div>
         );
