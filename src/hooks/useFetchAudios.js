@@ -68,7 +68,7 @@ export const useFetchAudios = () => {
 
   useEffect(() => {
     fetchAudio();
-  }, [fetchAudio]);
+  }, []);
 
   return { audios };
 };
