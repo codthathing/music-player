@@ -137,27 +137,8 @@ body {
 
 #playingTime {
     width: 100%;
-    -webkit-appearance: none;
-    background: transparent;
-}
-
-#playingTime::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, rgb(170, 170, 170) 0%, rgb(170, 170, 170) var(--fill), #FFFFFF var(--fill), #ddd 100%);
     border-radius: 2rem;
-    cursor: pointer;
-    width: 100%;
-}
-
-#playingTime::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    background: rgb(170, 170, 170);
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-}
-
-#playingTime:hover::-webkit-slider-thumb {
-    display: block;
+    background: linear-gradient(to right, rgb(170, 170, 170) 0%, rgb(170, 170, 170) var(--fill), #FFFFFF var(--fill), #ddd 100%);
 }
 
 #music-time {
@@ -265,7 +246,7 @@ body {
 
     #current-music-image {
         width: 10rem;
-        height: 11rem;
+        height: 10rem;
     }
     
     #current-music-name {
@@ -309,14 +290,8 @@ body {
         flex-direction: column;
         gap: 0.5rem 0;
     }
-    
-    #playingTime::-webkit-slider-thumb {
-        margin-top: -3px;
-        height: 9px;
-        width: 9px;
-    }
-    
-    #playingTime::-webkit-slider-runnable-track {
+
+    #playingTime {
         height: 3.5px;
     }
         
@@ -331,6 +306,10 @@ body {
 
     #music-shuffle-icon {
         order: 2;
+    }
+
+    #loading-gif {
+        width: 1.25rem;
     }
 }
 
@@ -416,7 +395,7 @@ body {
     }
 
     #current-music-image {
-        width: 9rem;
+        width: 10rem;
         height: 10rem;
     }
     
@@ -456,19 +435,17 @@ body {
         align-items: center;
         gap: 0 1.5rem;
     }
-    
-    #playingTime::-webkit-slider-thumb {
-        margin-top: -4.25px;
-        height: 12.5px;
-        width: 12.5px;
-    }
-    
-    #playingTime::-webkit-slider-runnable-track {
+
+    #playingTime {
         height: 5px;
     }
         
     #music-time {
         gap: 0 0.75rem;
         font-size: 1rem;
+    }
+
+    #loading-gif {
+        width: 2.5rem;
     }
 }

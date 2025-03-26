@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import jsmediatags from 'jsmediatags/dist/jsmediatags.min.js';
 
 export const useFetchAudios = () => {
   const [audios, setAudios] = useState([]);
-
+  
   let listOfAudios = [ 
     require("../assets/audio/ArrDee - Oliver Twist (Official Audio).mp3"), 
     require("../assets/audio/Asake-Basquiat-(TrendyBeatz.com).mp3"), 
@@ -42,12 +42,8 @@ export const useFetchAudios = () => {
         validAudioBlobs.map(async (audio) => {
           const duration = await new Promise((resolve) => {
             const audioElement = new Audio(audio.url);
-            audioElement.addEventListener('loadedmetadata', () => {
-              resolve(Math.round(audioElement.duration));
-            });
-            audioElement.addEventListener('error', () => {
-              resolve(0); 
-            });
+            audioElement.addEventListener('loadedmetadata', () => resolve(Math.round(audioElement.duration)));
+            audioElement.addEventListener('error', () => resolve(0));
           });
 
           const tags = await new Promise((resolve, reject) => {
@@ -64,12 +60,15 @@ export const useFetchAudios = () => {
           };
         })
       );
-  
       setAudios(results);
     } catch (error) {
       setAudios([]);
-    };
+    }
   };
 
-  return { audios, fetchAudio };
+  useEffect(() => {
+    fetchAudio();
+  }, []);
+
+  return { audios };
 };

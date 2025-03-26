@@ -7,7 +7,7 @@ const AudioTemplate = ({ songArray }) => {
     <section id="musicSection">
       {songArray.map(({ id, artist, title, picture }, index) => {
         return (
-          <div key={id} onClick={() => getAudio(id)} className="musicDiv">
+          <div key={id} onClick={() => getAudio(id, index)} className="musicDiv">
             <var className="audio-number">{index + 1}</var>
             <img src={picture} alt={title} className="audio-image" loading="lazy" />
             <aside className="controlDisplay">
