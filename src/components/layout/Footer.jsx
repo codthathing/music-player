@@ -34,7 +34,7 @@ const Footer = () => {
         </div>
         <FaForwardStep onClick={() => audioControl("NEXT")} className="control-button" />
       </div>
-      <audio src={link} ref={audioPlayerRef} hidden />
+      <audio src={link} ref={audioPlayerRef} controlsList="nodownload" hidden />
       <div id="music-duration-div">
         <div ref={audioDurationRef} id="playingTime" />
         <div id="music-time">
