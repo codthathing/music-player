@@ -1,11 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { NavigateContext } from "../contexts/NavigateContext";
 
 export const useAudioControl = () => {
   const { audioStatus, setAudioStatus, audioCopy, setCurrentAudio, currentAudio: { current_ID }, audioPlayerRef, audioShuffle, setMusicTime, setAudioDuration } = useContext(NavigateContext);
 
   const audioInitialAction = () => {
-    setAudioDuration({ minute: 0, seconds: 0 });
     setAudioStatus((prevState) => ({ ...prevState, status: true }));
     setTimeout(() => {
       audioPlayerRef.current.play();
@@ -31,15 +30,6 @@ export const useAudioControl = () => {
       { action ? setTimeout(() => audioPlayerRef.current.pause(), 1) : setTimeout(() => audioPlayerRef.current.play(), 1) };
     };
   };
-
-  useEffect(() => {
-    audioPlayerRef.current.addEventListener("play", setAudioStatus((prevState) => ({ ...prevState, status: true })));
-    audioPlayerRef.current.addEventListener("pause", setAudioStatus((prevState) => ({ ...prevState, status: false })));
-    return () => {
-      audioPlayerRef.current.removeEventListener("play", setAudioStatus((prevState) => ({ ...prevState, status: true })));
-      audioPlayerRef.current.removeEventListener("pause", setAudioStatus((prevState) => ({ ...prevState, status: false })));
-    };
-  }, [audioPlayerRef]);
 
   const audioControl = (type) => {
     if (!audioStatus.no_audio) {
