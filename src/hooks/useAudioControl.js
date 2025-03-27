@@ -39,7 +39,7 @@ export const useAudioControl = () => {
       audioPlayerRef.current.removeEventListener("play", setAudioStatus((prevState) => ({ ...prevState, status: true })));
       audioPlayerRef.current.removeEventListener("pause", setAudioStatus((prevState) => ({ ...prevState, status: false })));
     };
-  }, []);
+  }, [audioPlayerRef]);
 
   const audioControl = (type) => {
     if (!audioStatus.no_audio) {

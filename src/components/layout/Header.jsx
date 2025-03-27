@@ -7,7 +7,7 @@ const Header = () => {
   const [audioSearchQuery, setAudioSearchQuery] = useState("");
 
   useEffect(() => {
-    if(audios.length !== 0) setAudioCopy(audios.filter(({ title }) => title.toLowerCase().includes(audioSearchQuery)));
+    if(audios.length !== 0) setAudioCopy(audios.filter(({ title }) => title.toLowerCase().includes(audioSearchQuery.toLowerCase())));
   }, [audioSearchQuery]);
 
   return (
