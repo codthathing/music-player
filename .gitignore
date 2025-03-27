@@ -3,7 +3,6 @@
 # dependencies
 /node_modules
 /.pnp
-/src/assets/audio
 .pnp.js
 
 # testing

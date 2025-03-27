@@ -1,0 +1,33 @@
+## Kin Player
+# This is a web application for streaming music
+
+## Installation
+1. Clone the repository:
+  git clone https://github.com/codthathing/music-player.git
+2. Navigate to the project directory:
+  cd music-player
+3. Install dependencies:
+  npm install jsmediatags --force
+4. Start the development server:
+  npm run start
+
+## Usage
+After starting the server, open your browser and navigate to `http://localhost:3000`.
+
+## Technologies Used
+- React
+- CSS
+
+## Contributing
+Contributions are welcome! Please follow these steps:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Commit your changes (`git commit -m 'Add feature'`).
+4. Push to the branch (`git push origin feature-name`).
+5. Open a Pull Request.
+
+## Authors
+- [Akinwunmi Oluwasegun](https://github.com/codthathing) - Initial work
+
+## License
+This project is licensed under the [MIT License](LICENSE).
