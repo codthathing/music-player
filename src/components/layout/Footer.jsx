@@ -14,14 +14,14 @@ const Footer = () => {
     audioDurationRef.current.style.setProperty("--fill", `${(musicTime / (duration || 1)) * 100}%`);
     if (musicTime) setAudioDuration({ minute: Math.floor(musicTime / 60), seconds: musicTime % 60 }); 
     if (musicTime === duration) setAudioState(true);
-  }, [musicTime, duration, setAudioDuration]);
+  }, [musicTime]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (audioState) audioControl("NEXT");
     }, 500);
     return () => clearTimeout(timeout);
-  }, [audioState, audioControl]);
+  }, [audioState]);
 
 
   return (

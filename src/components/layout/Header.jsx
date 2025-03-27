@@ -8,7 +8,7 @@ const Header = () => {
 
   useEffect(() => {
     if(audios.length !== 0) setAudioCopy(audios.filter(({ title }) => title.toLowerCase().includes(audioSearchQuery)));
-  }, [audioSearchQuery, audios, setAudioCopy]);
+  }, [audioSearchQuery]);
 
   return (
     <header id="header">
