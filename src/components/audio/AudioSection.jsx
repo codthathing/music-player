@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavigateContext } from "../../contexts/NavigateContext";
 import { MdForward10, MdReplay5 } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa6";
@@ -15,11 +15,17 @@ const AudioSection = () => {
     };
   };
 
+  const [windowWidth, setWindowWidth] = useState(null);
+  useEffect(() => {
+    window.addEventListener("resize", () => window.innerWidth < 768 ? setWindowWidth(true) : setWindowWidth(false));
+    return () => window.removeEventListener("resize", () => window.innerWidth < 768 ? setWindowWidth(true) : setWindowWidth(false));
+  }, []);
+
 
   return (
     <main id="audio-main">
       {audioCopy.length === 0 ? <AudioLoading /> : <AudioTemplate songArray={audioCopy} />}
-      {(window.innerWidth < 768 ? showMusicDetails : true) && (
+      {(windowWidth ? showMusicDetails : true) && (
         <section id="current-music-section">
           <div id="music-details-close-div" onClick={() => setShowMusicDetails(false)}>
             <FaAngleDown className="control-button" />
