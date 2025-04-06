@@ -30,7 +30,7 @@ const Footer = () => {
       <div id="iconDiv">
         <FaBackwardStep onClick={() => audioControl("PREV")} className="control-button" />
         <div id="play-pause-button-div" className="control-button">
-          {audioStatus.status ? <FaPause onClick={() => updateAudioStatus(false, true)} /> : <FaPlay onClick={() => updateAudioStatus(true, false)} /> }
+          {audioStatus.status ? <FaPause onClick={() => updateAudioStatus(true)} /> : <FaPlay onClick={() => updateAudioStatus(false)} /> }
         </div>
         <FaForwardStep onClick={() => audioControl("NEXT")} className="control-button" />
       </div>
