@@ -152,7 +152,7 @@ body {
 
 
 
-@media all and (max-width: 989px) {
+@media all and (max-width: 767px) {
     #header {
         padding: 1rem;
         gap: 1.25rem 0;
@@ -325,7 +325,7 @@ body {
 
 
 
-@media all and (min-width: 990px) {
+@media all and (min-width: 1024px) {
     #header {
         align-items: center;
         padding: 1.5rem;
