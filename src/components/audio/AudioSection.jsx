@@ -15,8 +15,9 @@ const AudioSection = () => {
     };
   };
 
-  const [windowWidth, setWindowWidth] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(false);
   useEffect(() => {
+    setWindowWidth(window.innerWidth < 768);
     window.addEventListener("resize", () => window.innerWidth < 768 ? setWindowWidth(true) : setWindowWidth(false));
     return () => window.removeEventListener("resize", () => window.innerWidth < 768 ? setWindowWidth(true) : setWindowWidth(false));
   }, []);
